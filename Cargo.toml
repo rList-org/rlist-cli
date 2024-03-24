@@ -1,0 +1,14 @@
+[package]
+name = "rlist-cli"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "4.5.1"
+async-trait = "0.1.79"
+reqwest = {version = "0.12.1", features = ["json"]}
+rlist_vfs = "0.1.0"
+serde = "1.0.197"
+serde_json = "1.0.114"
