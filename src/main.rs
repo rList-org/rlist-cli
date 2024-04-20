@@ -1,14 +1,25 @@
-use axum::{
-    routing::get,
-    Router,
-};
+mod config;
+mod routes;
+mod state;
+
+use std::sync::Arc;
+use crate::routes::routes;
 
 #[tokio::main]
 async fn main() {
-    // build our application with a single route
-    let app = Router::new().route("/", get(|| async { "Hello, World!" }));
+    let config = config::loader::load_config();
+    let bind_address = format!("{}:{}", config.address, config.port);
+    let config::Config { site_profile, drives, .. } = config;
 
-    // run our app with hyper, listening globally on port 3000
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
+    tracing_subscriber::fmt()
+        .init();
+
+    let state = Arc::new(state::AppState {
+        site_profile,
+    });
+
+    let app = routes(state);
+
+    let listener = tokio::net::TcpListener::bind(&bind_address).await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }
