@@ -785,6 +785,7 @@ version = "0.1.0"
 dependencies = [
  "async-trait",
  "axum",
+ "http",
  "reqwest",
  "rlist-drivers",
  "rlist_vfs",
@@ -828,9 +829,9 @@ dependencies = [
 
 [[package]]
 name = "rlist_vfs"
-version = "0.1.3"
+version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "860dc22256218be7a8e999961233e128fd29ede6d51fd551ce2b27fdcaf17b50"
+checksum = "2b277535cdc0cbb279b7b0d892f4aa51bc91383c4621e4b513c3b32393d1fe14"
 dependencies = [
  "async-trait",
  "chrono",

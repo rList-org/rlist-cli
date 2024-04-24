@@ -3,6 +3,7 @@ mod routes;
 mod state;
 
 use std::sync::Arc;
+use tracing::{error, info};
 use crate::routes::routes;
 
 #[tokio::main]
@@ -15,6 +16,13 @@ async fn main() {
     // setup logging
     tracing_subscriber::fmt()
         .init();
+
+    if drives.is_empty() {
+        error!("No drives configured, exiting");
+        std::process::exit(1);
+    }
+
+    info!("Starting server on {}", bind_address);
 
     // set site profile as a shared immutable state
     let state = Arc::new(state::AppState {
