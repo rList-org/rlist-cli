@@ -799,9 +799,9 @@ dependencies = [
 
 [[package]]
 name = "rlist-driver-macro"
-version = "0.1.9"
+version = "0.1.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "81e0df7d61c6e66de94adf0744b035907e3c49e8f69de60997644243ea04de1f"
+checksum = "d3f83825fe8d61217c30f8ddf9b1661d0afbb0aca2f8e9c52fcdd896cb782526"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -811,9 +811,9 @@ dependencies = [
 
 [[package]]
 name = "rlist-drivers"
-version = "0.1.1"
+version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0a01ab6699f4aa3a0ebb23e47287c7fb64d3f0eac7f9956500f1d028bfa572f1"
+checksum = "bb908aa7ec555d4ffe675bafaf94c2d61d9e5b62941d370d534795889df91858"
 dependencies = [
  "async-trait",
  "chrono",

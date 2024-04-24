@@ -40,3 +40,22 @@ pub struct SiteProfile {
     #[serde(default)]
     pub site_keywords: Vec<String>,
 }
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn test_basic_des() {
+        let config = r#"
+        {
+            "site_profile": {
+                "site_name": "test"
+            },
+            "drives": []
+        }
+        "#;
+        let parsed = serde_json::from_str::<Config>(config);
+        assert!(parsed.is_ok());
+    }
+}
